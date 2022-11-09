@@ -28,6 +28,17 @@ function saveCity(event) {
   let searchInput = document.querySelector("#search-text-input");
   let h1 = document.querySelector("#city");
   h1.innerHTML = searchInput.value;
+  let city = h1.innerHTML;
+  let apiKey = "1d038ee28ef2727a9f0310860ac10ae9";
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(showTemperature);
+  console.log(apiURL);
 }
 let search = document.querySelector("#form");
 search.addEventListener("submit", saveCity);
+
+function showTemperature(response) {
+  let temperature = Math.round(response.data.main.temp);
+  let temperatureElement = document.querySelector("h2");
+  temperatureElement.innerHTML = `🌤 ${temperature}°C`;
+}
