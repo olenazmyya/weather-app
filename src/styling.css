@@ -58,7 +58,7 @@ h2 {
   color: #3f3d2f;
   font-size: 32px;
   font-weight: bold;
-  top: 20%; /* positioned in the center of the video */
+  top: 22%; /* positioned in the center of the video */
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -67,7 +67,7 @@ h3 {
   position: absolute;
   text-align: center;
   font-size: small;
-  top: 27%; /* positioned in the center of the video */
+  top: 30%; /* positioned in the center of the video */
   left: 50%;
   transform: translate(-50%, -50%);
 }

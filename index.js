@@ -38,7 +38,20 @@ let search = document.querySelector("#form");
 search.addEventListener("submit", saveCity);
 
 function showTemperature(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("h2");
   temperatureElement.innerHTML = `🌤 ${temperature}°C`;
+  let minTemp = Math.round(response.data.main.temp_min);
+  let minElement = document.querySelector("#min");
+  minElement.innerHTML = `min ${minTemp}°C`;
+  let maxTemp = Math.round(response.data.main.temp_max);
+  let maxElement = document.querySelector("#max");
+  maxElement.innerHTML = `max ${maxTemp}°C`;
+  let feelsLike = Math.round(response.data.main.feels_like);
+  let feelElement = document.querySelector("#realfeel");
+  feelElement.innerHTML = `feels like ${feelsLike}°C`;
+  let humidityParam = Math.round(response.data.main.humidity);
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `humidity ${humidityParam} %`;
 }
