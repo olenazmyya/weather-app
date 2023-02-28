@@ -32,13 +32,11 @@ function saveCity(event) {
   let apiKey = "1d038ee28ef2727a9f0310860ac10ae9";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiURL).then(showTemperature);
-  console.log(apiURL);
 }
 let search = document.querySelector("#form");
 search.addEventListener("submit", saveCity);
 
 function showTemperature(response) {
-  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("h2");
   temperatureElement.innerHTML = `🌤 ${temperature}°C`;

@@ -47,6 +47,7 @@ h1 {
   position: absolute; /* added for absolute positioning */
   color: #3f3d2f; /* changed to white text */
   text-align: center;
+  text-transform: capitalize;
   font-size: 30px;
   top: 15%; /* positioned in the center of the video */
   left: 50%;
