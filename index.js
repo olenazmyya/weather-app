@@ -39,7 +39,7 @@ search.addEventListener("submit", saveCity);
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("h2");
-  temperatureElement.innerHTML = `🌤 ${temperature}°C`;
+  temperatureElement.innerHTML = `${temperature}°C`;
   let minTemp = Math.round(response.data.main.temp_min);
   let minElement = document.querySelector("#min");
   minElement.innerHTML = `min ${minTemp}°C`;
@@ -52,4 +52,9 @@ function showTemperature(response) {
   let humidityParam = Math.round(response.data.main.humidity);
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = `humidity ${humidityParam} %`;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }

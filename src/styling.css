@@ -104,6 +104,12 @@ h4 {
 small {
   position: absolute;
   color: #dbdad9;
-  top: 73%; /* positioned in the center of the video */
+  top: 70%; /* positioned in the center of the video */
   left: 10%;
+}
+img {
+  position: absolute;
+  top: 22%; /* positioned in the center of the video */
+  left: 40%;
+  transform: translate(-50%, -50%);
 }
