@@ -23,18 +23,25 @@ button.onclick = function showBar() {
 };
 let slideSearch = document.querySelector(".citySearch");
 
-function saveCity(event) {
+function saveCity(city) {
+  let apiKey = "1d038ee28ef2727a9f0310860ac10ae9";
+  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(showTemperature);
+}
+
+function handleSubmit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-text-input");
   let h1 = document.querySelector("#city");
   h1.innerHTML = searchInput.value;
   let city = h1.innerHTML;
-  let apiKey = "1d038ee28ef2727a9f0310860ac10ae9";
-  let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiURL).then(showTemperature);
+  saveCity(searchInput.value);
 }
-let search = document.querySelector("#form");
-search.addEventListener("submit", saveCity);
+
+saveCity("Lviv");
+
+let searchForm = document.querySelector("#form");
+searchForm.addEventListener("submit", handleSubmit);
 
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
