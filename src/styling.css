@@ -86,6 +86,7 @@ h4 {
 
 .days-of-the-week {
   position: absolute;
+  margin-top: 20px;
   text-align: center;
   font-size: smaller;
   color: #dbdad9;
@@ -108,12 +109,21 @@ a {
 small {
   position: absolute;
   color: #dbdad9;
-  top: 70%; /* positioned in the center of the video */
+  top: 73%; /* positioned in the center of the video */
   left: 10%;
 }
-img {
+#icon {
   position: absolute;
   top: 22%; /* positioned in the center of the video */
   left: 40%;
   transform: translate(-50%, -50%);
+}
+.weather-forecast-date {
+  font-size: 16px;
+}
+.weather-forecast-temp {
+  font-size: 13px;
+}
+.weather-forecast-temp-min {
+  opacity: 0.5;
 }
