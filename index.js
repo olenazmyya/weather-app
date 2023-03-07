@@ -17,6 +17,27 @@ let time = new Date().toLocaleTimeString("en-US", {
 let date = document.querySelector("#dateAndTime");
 date.innerHTML = `${day}, ${time}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+      <div class="weather-forecast-date">${day}</div>
+        <img src="http://openweathermap.org/img/wn/10d@2x.png" width="45" />
+          <div class="weather-forecast-temp">
+              <span class="weather-forecast-temp-max">17°C</span>
+              <span class="weather-forecast-temp-min"> 10°C</span>
+            </div>
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let button = document.querySelector("button");
 button.onclick = function showBar() {
   slideSearch.style.display = "block";
@@ -39,6 +60,7 @@ function handleSubmit(event) {
 }
 
 saveCity("Lviv");
+displayForecast();
 
 let searchForm = document.querySelector("#form");
 searchForm.addEventListener("submit", handleSubmit);
